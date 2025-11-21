@@ -5,7 +5,9 @@ Projektin [Backlog](https://docs.google.com/spreadsheets/d/1W5aKhCoG9F8SeXQu1rem
 
 ## DoD:
 Toteutetun koodin testikattavuuden tulee olla kohtuullinen
+
 Asiakas pääsee näkemään koko ajan koodin ja testien tilanteen CI-palvelusta
+
 Koodin ylläpidettävyyden tulee olla mahdollisimman hyvä
   - järkevä nimeäminen
   - järkevä/selkeä ja perusteltu arkkitehtuuri
