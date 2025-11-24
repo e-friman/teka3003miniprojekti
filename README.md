@@ -12,3 +12,6 @@ Koodin ylläpidettävyyden tulee olla mahdollisimman hyvä
   - järkevä nimeäminen
   - järkevä/selkeä ja perusteltu arkkitehtuuri
   - yhtenäinen koodityyli (noudattaa pylintin avulla määriteltyjä sääntöjä)
+
+
+Mikaelin lisäämää tekstiä
