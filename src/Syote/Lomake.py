@@ -1,17 +1,18 @@
-class lomake:
-    #kysy käyttäjältä lomakkeen sisältö
+class Lomake:
+    #Hae entryä vastaavat kentät dictionarysta dict
+    def haeKentat(dict, syöte):
+        kentat = dict[syöte]
+        return kentat
+    
+    #Kysy käyttäjältä lomakkeen sisältö
     def kysySyotetta(obj):
         syote = input(str(obj) + " = ")
         return syote
-    
-    def haeKentät(dict, syöte):
-        ent = dict[syöte]
-        return ent
 
-    #kysyy lomakkeen sisällön käyttäjältä ja laittaa sen eteenpäin tallennettavaksi
+    #Kysyy lomakkeen sisällön käyttäjältä ja laittaa sen eteenpäin tallennettavaksi
     def taytaLomake(entryTyyppi):
         for obj in entryTyyppi:
-            lomake.kysySyotetta(obj)
+            Lomake.kysySyotetta(obj)
         #lahetaLomakeTallennettavaksi(entryTyyppi, syote)
 
 
