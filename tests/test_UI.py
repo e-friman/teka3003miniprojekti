@@ -3,9 +3,9 @@
 #from Entry import Entry
 #polut ei toiminut jostain syystä...
 
-class testEntry(TestCase):
+class testEntry():
     pass
-class testlomake(TestCase):
+class testlomake():
     pass
-class testsuorita(TestCase):
+class testsuorita():
     pass
