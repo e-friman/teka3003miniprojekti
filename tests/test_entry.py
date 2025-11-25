@@ -3,4 +3,4 @@ from unittest import TestCase
 
 
 class TestEntry(TestCase):
-    test
+    pass
