@@ -1,9 +1,10 @@
 from Entry import Entry
-from Syöte import Syöte
-from tyypit import tyypit
+from lomake import lomake
+from suorita import suorita
 
 class testEntry(TestCase):
-
-class testSyöte(TestCase):
-
-class testtyypit(TestCase):
+    pass
+class testlomake(TestCase):
+    pass
+class testsuorita(TestCase):
+    pass
