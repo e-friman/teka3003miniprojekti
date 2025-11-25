@@ -1,7 +1,7 @@
-from lomake import lomake
-from suorita import suorita
+#from lomake import lomake
+#from suorita import suorita
 #from Entry import Entry
-#entry polku ei toiminut jostain syystä
+#polut ei toiminut jostain syystä...
 
 class testEntry(TestCase):
     pass
