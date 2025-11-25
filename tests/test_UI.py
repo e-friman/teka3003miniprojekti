@@ -1,6 +1,6 @@
-from Entry import Entry
 from lomake import lomake
 from suorita import suorita
+from Entry import Entry
 
 class testEntry(TestCase):
     pass
