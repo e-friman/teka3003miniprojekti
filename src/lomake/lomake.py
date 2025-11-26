@@ -37,7 +37,7 @@ class Lomake:
             #vaikka se itse haluaa niitä ja koodi ei toimi ilman että tuohonkin
             #laittaa joten enpä tiedä
             #-Vilppu
-            self.kysy_syotetta(self, field)
+            self.kysy_syotetta(field)
             #syote = Lomake.kysySyötettä(obj)
             #newList.append( obj + "=" + syöte)
             #return newList

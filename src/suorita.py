@@ -1,6 +1,6 @@
 from lomake import Lomake
 
-Lomake()
+lomake = Lomake()
 #(fixme):
 #Tämä itse suorittaminen halutaan tuolla src/ kansiossa olevassa tiedostossa kuten app.py, niin
 #copy-pastesin nyt tämän suorita.py sinne, joten voidaan ajaa sieltä toistaiseksi.
@@ -10,17 +10,18 @@ Lomake()
 #ohjelman käynnistyessä kysytään käyttäjältä komento
 def tervetuloa():
     #Pylint ei tykkää tuosta globalista, pitää muuttaa myöhemmin tms. -Vilppu
-    global syote
     #Vaihdoin tämän taas 1 ja 2 koska en jaksa kirjoittaa -Vilppu
-    print("Tervetuloa! Anna Komento!\n" \
-    "1 = Syötä viite, 2 = Poistu")
-    syote = input("Komento:")
-    return syote
+    print(
+        "\n"
+        "Tervetuloa! Anna Komento!\n"
+        "1 = Syötä viite, 2 = Poistu")
+    inp = input("Komento:")
+    return inp
 
 def syota_viite(db):
-    entry = Lomake.entry_syote(Lomake)
-    db_data = Lomake.hae_kentat(Lomake, db, entry)
-    Lomake.tayta_lomake(Lomake, db_data)
+    entry = lomake.entry_syote()
+    db_data = lomake.hae_kentat(db, entry)
+    lomake.tayta_lomake(db_data)
 
 #Ohjelma käynnistyy
 syote = tervetuloa()
@@ -29,7 +30,7 @@ syote = tervetuloa()
 while syote != "2":
     if syote == "1":
         #testidata, tähän joku getData() tms.
-        data = Lomake.entry_tyypit
+        data = lomake.entry_tyypit
         syota_viite(data)
         syote = tervetuloa()
     else:
@@ -39,5 +40,3 @@ while syote != "2":
 
 #Ohjelma sulkeutuu
 print("Ohjelma sulkeutuu!")
-#Pylint haluaisi sys.exit mielummin kts. myöhemmin
-quit()
