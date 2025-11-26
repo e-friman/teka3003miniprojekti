@@ -20,6 +20,8 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install --no-root
+      - name: Run linter
+        run: poetry run pylint src tests
       - name: Run tests
         run: poetry run coverage run --branch -m pytest; poetry run coverage html
 
