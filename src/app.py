@@ -1,5 +1,6 @@
-from Citation import Citation
-from Database import MemoryDatabase
+from citation import Citation
+from database import MemoryDatabase
+
 citation = Citation("article", "key1", {"author": "author", "title": "title"})
 
 
