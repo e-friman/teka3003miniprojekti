@@ -13,5 +13,4 @@ Koodin ylläpidettävyyden tulee olla mahdollisimman hyvä
   - järkevä/selkeä ja perusteltu arkkitehtuuri
   - yhtenäinen koodityyli (noudattaa pylintin avulla määriteltyjä sääntöjä)
 
-
-Mikaelin lisäämää tekstiä
+https://github.com/e-friman/teka3003miniprojekti/actions/workflows/main.yml/badge.svg
