@@ -9,7 +9,7 @@ class Lomake:
     #------------------------------------------------------------------
     #aloitetaan kysymällä entry tyyppiä esim book (@book)
     def entry_syote(self):
-        entry = self._input("Entry-tyyppi = ")
+        entry = self._input(f"Mahdolliset tyypit: {list(self.entry_tyypit.keys())}\nTyyppi = ")
         return entry
 
     def key_syote(self):
@@ -40,6 +40,9 @@ class Lomake:
     def tayta_lomake(self, data):
         #newList = []
         entry = self.entry_syote()
+        if not entry in self.entry_tyypit:
+            raise RuntimeError("Tyyppi ei kelpaa.")
+
         key = self.key_syote()
         kentat = self.hae_kentat(self.entry_tyypit, entry)
         data = {}
