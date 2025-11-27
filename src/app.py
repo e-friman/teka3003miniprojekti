@@ -1,7 +1,7 @@
+import os
 from citation import Citation
 from database import MemoryDatabase
 from lomake import Lomake
-import os
 
 citation = Citation("article", "key1", {"author": "author", "title": "title"})
 
