@@ -16,3 +16,16 @@ class Citation:
     @property
     def data(self) -> dict:
         return self._data
+
+    #muunna data bibtex muotoon
+    def to_bibtex(self) -> str:
+        type_ = self.type
+        key = self.key
+        data = ""
+        for index in self.data:
+            data += ",\n"
+            data += index + "=" + f'"{self.data[index]}"'
+
+        bibtex = "@" + type_ + "{" + key + data + "\n}"
+
+        return bibtex
