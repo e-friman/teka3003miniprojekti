@@ -1,7 +1,7 @@
 from citation import Citation
 class Lomake:
     def __init__(self, syote = input):
-        self._input = input
+        self._input = syote
 
     #HUOM! siirsin entryn omasta paketista tänne, koska pylint valittaa.
     #Myös korjattu noita selffejä ym. sen verran mitä se kait haluaa.
@@ -34,7 +34,7 @@ class Lomake:
 
     #Kysy käyttäjältä lomakkeen sisältö
     def kysy_syotetta(self, field):
-        return input(str(field) + " = ")
+        return self._input(str(field) + " = ")
 
     #Kysyy lomakkeen sisällön käyttäjältä ja laittaa sen eteenpäin tallennettavaksi
     def tayta_lomake(self, data):

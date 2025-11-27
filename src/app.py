@@ -27,11 +27,6 @@ def tervetuloa():
     inp = input("Komento:")
     return inp
 
-def syota_viite(db):
-    entry = lomake.entry_syote()
-    db_data = lomake.hae_kentat(db, entry)
-    ret = lomake.tayta_lomake(db_data)
-    db.add(ret)
 
 #Ohjelma käynnistyy
 syote = "0"
