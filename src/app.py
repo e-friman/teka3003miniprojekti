@@ -1,3 +1,4 @@
+import os
 from citation import Citation
 from database import MemoryDatabase
 from lomake import Lomake
@@ -13,38 +14,46 @@ lomake = Lomake()
 entryt = lomake.entry_tyypit
 
 
+def main():
 
-print(db.get_all())
-print(str(db.get_all()[0]))
+    #Ohjelma käynnistyy
+    syote = lue_syote()
 
-def tervetuloa():
+    #Main loop (kts. tkinter myöhemmin?)
+    while syote != "q":
+        if syote == "1":
+            #testidata, tähän joku getData() tms.
+            try:
+                cit = lomake.tayta_lomake(None)
+                db.add(cit)
+            except RuntimeError as e:
+                print(str(e))
+        elif syote == "2":
+            for c in db.get_all():
+                print(str(c))
+        else:
+            print(
+                "Outo komento!\n")
+        input("Paina enter-näppäintä jatkaaksesi")
+        syote = lue_syote()
+
+    #Ohjelma sulkeutuu
+    print("Ohjelma sulkeutuu!")
+
+
+def lue_syote():
+    clear()
     #Pylint ei tykkää tuosta globalista, pitää muuttaa myöhemmin tms. -Vilppu
     #Vaihdoin tämän taas 1 ja 2 koska en jaksa kirjoittaa -Vilppu
     print(
         "\n"
         "Tervetuloa! Anna Komento!\n"
-        "1 = Syötä viite, 2 = Poistu")
-    inp = input("Komento:")
+        "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet")
+    inp = input("Komento: ")
     return inp
 
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-#Ohjelma käynnistyy
-syote = "0"
-
-#Main loop (kts. tkinter myöhemmin?)
-while syote != "2":
-    syote = tervetuloa()
-    if syote == "1":
-        #testidata, tähän joku getData() tms.
-        cit = lomake.tayta_lomake(None)
-        print(str(cit))
-        db.add(cit)
-    elif syote == "3":
-        for c in db.get_all():
-            print(str(c))
-    else:
-        print(
-            "Outo komento!\n")
-
-#Ohjelma sulkeutuu
-print("Ohjelma sulkeutuu!")
+if __name__ == "__main__":
+    main()
