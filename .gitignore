@@ -9,3 +9,4 @@ __pyt
 htmlcov
 .coverage
 .coverage.*
+.xml

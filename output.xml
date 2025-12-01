@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-12-01T17:07:40.954064" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-12-01T17:29:32.591718" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="C:\Kurssit\TEKA3003\miniprojekti\teka3003miniprojekti\tests">
 <suite id="s1-s1" name="Robot" source="C:\Kurssit\TEKA3003\miniprojekti\teka3003miniprojekti\tests\robot">
 <suite id="s1-s1-s1" name="Citation Tests" source="C:\Kurssit\TEKA3003\miniprojekti\teka3003miniprojekti\tests\robot\citation_tests.robot">
 <test id="s1-s1-s1-t1" name="Citation Initialization Works" line="5">
 <kw name="Create Citation" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.989426" level="INFO">${c} = Citation(type=article, key=a1, data={'author': 'Bob'})</msg>
+<msg time="2025-12-01T17:29:32.622701" level="INFO">${c} = Citation(type=article, key=a1, data={'author': 'Bob'})</msg>
 <var>${c}</var>
 <arg>article</arg>
 <arg>a1</arg>
 <arg>{"author": "Bob"}</arg>
-<status status="PASS" start="2025-12-01T17:07:40.989164" elapsed="0.000445"/>
+<status status="PASS" start="2025-12-01T17:29:32.622460" elapsed="0.000272"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${c.type}</arg>
 <arg>article</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.990503" elapsed="0.000713"/>
+<status status="PASS" start="2025-12-01T17:29:32.622932" elapsed="0.000409"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${c.key}</arg>
 <arg>a1</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.991449" elapsed="0.000423"/>
+<status status="PASS" start="2025-12-01T17:29:32.623481" elapsed="0.000272"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${c.data["author"]}</arg>
 <arg>Bob</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.992059" elapsed="0.000285"/>
+<status status="PASS" start="2025-12-01T17:29:32.623905" elapsed="0.000254"/>
 </kw>
-<status status="PASS" start="2025-12-01T17:07:40.988255" elapsed="0.004227"/>
+<status status="PASS" start="2025-12-01T17:29:32.621916" elapsed="0.002371"/>
 </test>
 <test id="s1-s1-s1-t2" name="Citation String Representation Works" line="11">
 <kw name="Create Citation" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.993176" level="INFO">${c} = Citation(type=article, key=a1, data={'title': 'My Title'})</msg>
+<msg time="2025-12-01T17:29:32.624881" level="INFO">${c} = Citation(type=article, key=a1, data={'title': 'My Title'})</msg>
 <var>${c}</var>
 <arg>article</arg>
 <arg>a1</arg>
 <arg>{"title": "My Title"}</arg>
-<status status="PASS" start="2025-12-01T17:07:40.993018" elapsed="0.000179"/>
+<status status="PASS" start="2025-12-01T17:29:32.624728" elapsed="0.000173"/>
 </kw>
 <kw name="Citation To String" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.993440" level="INFO">${s} = Citation(type=article, key=a1, data={'title': 'My Title'})</msg>
+<msg time="2025-12-01T17:29:32.625106" level="INFO">${s} = Citation(type=article, key=a1, data={'title': 'My Title'})</msg>
 <var>${s}</var>
 <arg>${c}</arg>
-<status status="PASS" start="2025-12-01T17:07:40.993329" elapsed="0.000129"/>
+<status status="PASS" start="2025-12-01T17:29:32.625016" elapsed="0.000104"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${s}</arg>
 <arg>My Title</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.993599" elapsed="0.000104"/>
+<status status="PASS" start="2025-12-01T17:29:32.625226" elapsed="0.000081"/>
 </kw>
-<status status="PASS" start="2025-12-01T17:07:40.992777" elapsed="0.001049"/>
+<status status="PASS" start="2025-12-01T17:29:32.624525" elapsed="0.000887"/>
 </test>
 <test id="s1-s1-s1-t3" name="Database Starts Empty" line="16">
 <kw name="Create Database" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.994305" level="INFO">${db} = &lt;database.memory_database.MemoryDatabase object at 0x000001E8FF7486E0&gt;</msg>
+<msg time="2025-12-01T17:29:32.625873" level="INFO">${db} = &lt;database.memory_database.MemoryDatabase object at 0x0000027E2CC386E0&gt;</msg>
 <var>${db}</var>
-<status status="PASS" start="2025-12-01T17:07:40.994217" elapsed="0.000106"/>
+<status status="PASS" start="2025-12-01T17:29:32.625784" elapsed="0.000107"/>
 </kw>
 <kw name="Database All" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.994525" level="INFO">${items} = []</msg>
+<msg time="2025-12-01T17:29:32.626524" level="INFO">${items} = []</msg>
 <var>${items}</var>
 <arg>${db}</arg>
-<status status="PASS" start="2025-12-01T17:07:40.994431" elapsed="0.000109"/>
+<status status="PASS" start="2025-12-01T17:29:32.625989" elapsed="0.000570"/>
 </kw>
 <kw name="Length Should Be" owner="BuiltIn">
-<msg time="2025-12-01T17:07:40.994725" level="INFO">Length is 0.</msg>
+<msg time="2025-12-01T17:29:32.626895" level="INFO">Length is 0.</msg>
 <arg>${items}</arg>
 <arg>0</arg>
 <doc>Verifies that the length of the given item is correct.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.994640" elapsed="0.000110"/>
+<status status="PASS" start="2025-12-01T17:29:32.626743" elapsed="0.000196"/>
 </kw>
-<status status="PASS" start="2025-12-01T17:07:40.994030" elapsed="0.000817"/>
+<status status="PASS" start="2025-12-01T17:29:32.625611" elapsed="0.001491"/>
 </test>
 <test id="s1-s1-s1-t4" name="Database Adding Items Works" line="21">
 <kw name="Create Database" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.995271" level="INFO">${db} = &lt;database.memory_database.MemoryDatabase object at 0x000001E8FF693D90&gt;</msg>
+<msg time="2025-12-01T17:29:32.627721" level="INFO">${db} = &lt;database.memory_database.MemoryDatabase object at 0x0000027E2CB83D90&gt;</msg>
 <var>${db}</var>
-<status status="PASS" start="2025-12-01T17:07:40.995197" elapsed="0.000090"/>
+<status status="PASS" start="2025-12-01T17:29:32.627635" elapsed="0.000107"/>
 </kw>
 <kw name="Create Citation" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.995517" level="INFO">${c} = Citation(type=article, key=k1, data={'author': 'A'})</msg>
+<msg time="2025-12-01T17:29:32.628001" level="INFO">${c} = Citation(type=article, key=k1, data={'author': 'A'})</msg>
 <var>${c}</var>
 <arg>article</arg>
 <arg>k1</arg>
 <arg>{"author": "A"}</arg>
-<status status="PASS" start="2025-12-01T17:07:40.995384" elapsed="0.000153"/>
+<status status="PASS" start="2025-12-01T17:29:32.627871" elapsed="0.000149"/>
 </kw>
 <kw name="Database Add" owner="AppLibrary">
 <arg>${db}</arg>
 <arg>${c}</arg>
-<status status="PASS" start="2025-12-01T17:07:40.995791" elapsed="0.000124"/>
+<status status="PASS" start="2025-12-01T17:29:32.628161" elapsed="0.000097"/>
 </kw>
 <kw name="Database All" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.996249" level="INFO">${items} = [&lt;citation.citation.Citation object at 0x000001E8FF774550&gt;]</msg>
+<msg time="2025-12-01T17:29:32.628461" level="INFO">${items} = [&lt;citation.citation.Citation object at 0x0000027E2CC64550&gt;]</msg>
 <var>${items}</var>
 <arg>${db}</arg>
-<status status="PASS" start="2025-12-01T17:07:40.996134" elapsed="0.000138"/>
+<status status="PASS" start="2025-12-01T17:29:32.628368" elapsed="0.000108"/>
 </kw>
 <kw name="Length Should Be" owner="BuiltIn">
-<msg time="2025-12-01T17:07:40.996597" level="INFO">Length is 1.</msg>
+<msg time="2025-12-01T17:29:32.628683" level="INFO">Length is 1.</msg>
 <arg>${items}</arg>
 <arg>1</arg>
 <doc>Verifies that the length of the given item is correct.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.996458" elapsed="0.000180"/>
+<status status="PASS" start="2025-12-01T17:29:32.628590" elapsed="0.000118"/>
 </kw>
-<status status="PASS" start="2025-12-01T17:07:40.995023" elapsed="0.001762"/>
+<status status="PASS" start="2025-12-01T17:29:32.627428" elapsed="0.001398"/>
 </test>
 <test id="s1-s1-s1-t5" name="Lomake Produces Citation" line="28">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-12-01T17:07:40.997550" level="INFO">${values} = ['article', 'key1', 'Bob', 'My Title', 'My Journal', '2025']</msg>
+<msg time="2025-12-01T17:29:32.629310" level="INFO">${values} = ['article', 'key1', 'Bob', 'My Title', 'My Journal', '2025']</msg>
 <var>${values}</var>
 <arg>article</arg>
 <arg>key1</arg>
@@ -121,60 +121,60 @@
 <arg>My Journal</arg>
 <arg>2025</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.997404" elapsed="0.000173"/>
+<status status="PASS" start="2025-12-01T17:29:32.629222" elapsed="0.000106"/>
 </kw>
 <kw name="Create Lomake Citation" owner="AppLibrary">
-<msg time="2025-12-01T17:07:40.997851" level="INFO">${result} = Citation(type=article, key=key1, data={'author': 'Bob', 'title': 'My Title', 'journal': 'My Journal', 'year': '2025'})</msg>
+<msg time="2025-12-01T17:29:32.629551" level="INFO">${result} = Citation(type=article, key=key1, data={'author': 'Bob', 'title': 'My Title', 'journal': 'My Journal', 'year': '2025'})</msg>
 <var>${result}</var>
 <arg>${values}</arg>
 <doc>Täyttää Lomake-luokan faken avulla.
 values: lista arvoja järjestyksessä:
 [entry_type, key, kenttä1, kenttä2, ...]</doc>
-<status status="PASS" start="2025-12-01T17:07:40.997728" elapsed="0.000139"/>
+<status status="PASS" start="2025-12-01T17:29:32.629441" elapsed="0.000126"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${result.type}</arg>
 <arg>article</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.998008" elapsed="0.000311"/>
+<status status="PASS" start="2025-12-01T17:29:32.629697" elapsed="0.000282"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${result.key}</arg>
 <arg>key1</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.998434" elapsed="0.000264"/>
+<status status="PASS" start="2025-12-01T17:29:32.630098" elapsed="0.000259"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${result.data["author"]}</arg>
 <arg>Bob</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.998822" elapsed="0.000256"/>
+<status status="PASS" start="2025-12-01T17:29:32.630470" elapsed="0.000244"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${result.data["title"]}</arg>
 <arg>My Title</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.999181" elapsed="0.000227"/>
+<status status="PASS" start="2025-12-01T17:29:32.630826" elapsed="0.000246"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${result.data["journal"]}</arg>
 <arg>My Journal</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.999542" elapsed="0.000264"/>
+<status status="PASS" start="2025-12-01T17:29:32.631345" elapsed="0.000257"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${result.data["year"]}</arg>
 <arg>2025</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-01T17:07:40.999919" elapsed="0.000230"/>
+<status status="PASS" start="2025-12-01T17:29:32.631731" elapsed="0.000253"/>
 </kw>
-<status status="PASS" start="2025-12-01T17:07:40.997123" elapsed="0.003137"/>
+<status status="PASS" start="2025-12-01T17:29:32.629023" elapsed="0.003083"/>
 </test>
-<status status="PASS" start="2025-12-01T17:07:40.982015" elapsed="0.018579"/>
+<status status="PASS" start="2025-12-01T17:29:32.615599" elapsed="0.017485"/>
 </suite>
-<status status="PASS" start="2025-12-01T17:07:40.980999" elapsed="0.019982"/>
+<status status="PASS" start="2025-12-01T17:29:32.614421" elapsed="0.019199"/>
 </suite>
-<status status="PASS" start="2025-12-01T17:07:40.955452" elapsed="0.045843"/>
+<status status="PASS" start="2025-12-01T17:29:32.592803" elapsed="0.041188"/>
 </suite>
 <statistics>
 <total>

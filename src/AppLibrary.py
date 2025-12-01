@@ -1,3 +1,4 @@
+# pylint: disable=C0103
 from citation import Citation
 from database import MemoryDatabase
 from lomake import Lomake
