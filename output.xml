@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-12-01T16:19:42.766313" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot" source="C:\Kurssit\TEKA3003\miniprojekti\teka3003miniprojekti\tests\robot">
+<suite id="s1-s1" name="Citation Tests" source="C:\Kurssit\TEKA3003\miniprojekti\teka3003miniprojekti\tests\robot\citation_tests.robot">
+<test id="s1-s1-t1" name="Citation Initialization Works" line="5">
+<kw name="Create Citation" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.801540" level="INFO">${c} = Citation(type=article, key=a1, data={'author': 'Bob'})</msg>
+<var>${c}</var>
+<arg>article</arg>
+<arg>a1</arg>
+<arg>{"author": "Bob"}</arg>
+<status status="PASS" start="2025-12-01T16:19:42.801317" elapsed="0.000253"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${c.type}</arg>
+<arg>article</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.801755" elapsed="0.000355"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${c.key}</arg>
+<arg>a1</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.802242" elapsed="0.000281"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${c.data["author"]}</arg>
+<arg>Bob</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.802647" elapsed="0.000252"/>
+</kw>
+<status status="PASS" start="2025-12-01T16:19:42.800792" elapsed="0.002227"/>
+</test>
+<test id="s1-s1-t2" name="Citation String Representation Works" line="11">
+<kw name="Create Citation" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.804158" level="INFO">${c} = Citation(type=article, key=a1, data={'title': 'My Title'})</msg>
+<var>${c}</var>
+<arg>article</arg>
+<arg>a1</arg>
+<arg>{"title": "My Title"}</arg>
+<status status="PASS" start="2025-12-01T16:19:42.803920" elapsed="0.000271"/>
+</kw>
+<kw name="Citation To String" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.804547" level="INFO">${s} = Citation(type=article, key=a1, data={'title': 'My Title'})</msg>
+<var>${s}</var>
+<arg>${c}</arg>
+<status status="PASS" start="2025-12-01T16:19:42.804394" elapsed="0.000178"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${s}</arg>
+<arg>My Title</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.804762" elapsed="0.000136"/>
+</kw>
+<status status="PASS" start="2025-12-01T16:19:42.803373" elapsed="0.001708"/>
+</test>
+<test id="s1-s1-t3" name="Database Starts Empty" line="16">
+<kw name="Create Database" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.805876" level="INFO">${db} = &lt;database.memory_database.MemoryDatabase object at 0x00000274DF7086E0&gt;</msg>
+<var>${db}</var>
+<status status="PASS" start="2025-12-01T16:19:42.805744" elapsed="0.000154"/>
+</kw>
+<kw name="Database All" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.806169" level="INFO">${items} = []</msg>
+<var>${items}</var>
+<arg>${db}</arg>
+<status status="PASS" start="2025-12-01T16:19:42.806060" elapsed="0.000126"/>
+</kw>
+<kw name="Length Should Be" owner="BuiltIn">
+<msg time="2025-12-01T16:19:42.806394" level="INFO">Length is 0.</msg>
+<arg>${items}</arg>
+<arg>0</arg>
+<doc>Verifies that the length of the given item is correct.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.806297" elapsed="0.000125"/>
+</kw>
+<status status="PASS" start="2025-12-01T16:19:42.805478" elapsed="0.001073"/>
+</test>
+<test id="s1-s1-t4" name="Database Adding Items Works" line="21">
+<kw name="Create Database" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.807045" level="INFO">${db} = &lt;database.memory_database.MemoryDatabase object at 0x00000274DF65F890&gt;</msg>
+<var>${db}</var>
+<status status="PASS" start="2025-12-01T16:19:42.806951" elapsed="0.000112"/>
+</kw>
+<kw name="Create Citation" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.807292" level="INFO">${c} = Citation(type=article, key=k1, data={'author': 'A'})</msg>
+<var>${c}</var>
+<arg>article</arg>
+<arg>k1</arg>
+<arg>{"author": "A"}</arg>
+<status status="PASS" start="2025-12-01T16:19:42.807165" elapsed="0.000142"/>
+</kw>
+<kw name="Database Add" owner="AppLibrary">
+<arg>${db}</arg>
+<arg>${c}</arg>
+<status status="PASS" start="2025-12-01T16:19:42.807409" elapsed="0.000094"/>
+</kw>
+<kw name="Database All" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.807704" level="INFO">${items} = [&lt;citation.citation.Citation object at 0x00000274DF65FB10&gt;]</msg>
+<var>${items}</var>
+<arg>${db}</arg>
+<status status="PASS" start="2025-12-01T16:19:42.807600" elapsed="0.000120"/>
+</kw>
+<kw name="Length Should Be" owner="BuiltIn">
+<msg time="2025-12-01T16:19:42.807915" level="INFO">Length is 1.</msg>
+<arg>${items}</arg>
+<arg>1</arg>
+<doc>Verifies that the length of the given item is correct.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.807827" elapsed="0.000114"/>
+</kw>
+<status status="PASS" start="2025-12-01T16:19:42.806766" elapsed="0.001279"/>
+</test>
+<test id="s1-s1-t5" name="Lomake Produces Citation" line="28">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-12-01T16:19:42.808525" level="INFO">${values} = ['article', 'key1', 'Bob', 'My Title', 'My Journal', '2025']</msg>
+<var>${values}</var>
+<arg>article</arg>
+<arg>key1</arg>
+<arg>Bob</arg>
+<arg>My Title</arg>
+<arg>My Journal</arg>
+<arg>2025</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.808440" elapsed="0.000100"/>
+</kw>
+<kw name="Create Lomake Citation" owner="AppLibrary">
+<msg time="2025-12-01T16:19:42.808772" level="INFO">${result} = Citation(type=article, key=key1, data={'author': 'Bob', 'title': 'My Title', 'journal': 'My Journal', 'year': '2025'})</msg>
+<var>${result}</var>
+<arg>${values}</arg>
+<doc>Täyttää Lomake-luokan faken avulla.
+values: lista arvoja järjestyksessä:
+[entry_type, key, kenttä1, kenttä2, ...]</doc>
+<status status="PASS" start="2025-12-01T16:19:42.808649" elapsed="0.000141"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result.type}</arg>
+<arg>article</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.808895" elapsed="0.000267"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result.key}</arg>
+<arg>key1</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.809408" elapsed="0.000532"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result.data["author"]}</arg>
+<arg>Bob</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.810353" elapsed="0.000443"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result.data["title"]}</arg>
+<arg>My Title</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.811014" elapsed="0.000366"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result.data["journal"]}</arg>
+<arg>My Journal</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.811531" elapsed="0.000260"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result.data["year"]}</arg>
+<arg>2025</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-01T16:19:42.811973" elapsed="0.000272"/>
+</kw>
+<status status="PASS" start="2025-12-01T16:19:42.808264" elapsed="0.004138"/>
+</test>
+<status status="PASS" start="2025-12-01T16:19:42.793923" elapsed="0.018867"/>
+</suite>
+<status status="PASS" start="2025-12-01T16:19:42.767836" elapsed="0.045340"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robot" id="s1" pass="5" fail="0" skip="0">Robot</stat>
+<stat name="Citation Tests" id="s1-s1" pass="5" fail="0" skip="0">Robot.Citation Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
