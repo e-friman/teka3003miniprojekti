@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ../src/AppLibrary.py
+Library    app_library.AppLibrary
 
 *** Test Cases ***
 Citation Initialization Works
