@@ -14,4 +14,4 @@ Koodin ylläpidettävyyden tulee olla mahdollisimman hyvä
   - yhtenäinen koodityyli (noudattaa pylintin avulla määriteltyjä sääntöjä)
 
 
-Mikaelin lisäämää tekstiä
+[![CI](https://github.com/e-friman/teka3003miniprojekti/actions/workflows/main.yml/badge.svg)](https://github.com/e-friman/teka3003miniprojekti/actions/workflows/main.yml)
