@@ -27,4 +27,4 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           export PYTHONPATH=src
-          poetry run robot tests
+          poetry run robot --pythonpath "resources:src" tests/robot
