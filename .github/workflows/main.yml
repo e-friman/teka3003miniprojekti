@@ -25,5 +25,5 @@ jobs:
       - name: Run tests
         run: poetry run coverage run --branch -m pytest; poetry run coverage html
       - name: Run Robot Framework tests
-        run: poetry runrobot tests/robot
+        run: poetry run robot tests/robot
 
