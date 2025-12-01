@@ -7,7 +7,7 @@ class AppLibrary:
     # Citation related methods
     def create_citation(self, type_, key, data: dict):
         return Citation(type_, key, data)
-    
+
     def citation_to_string(self, citation):
         return str(citation)
 
@@ -33,7 +33,7 @@ class AppLibrary:
         it = iter(values)
 
         # Fake input-funktio palauttaa aina seuraavan arvon iteratorista
-        def fake_input(prompt=""):
+        def fake_input(_=""):
             return str(next(it))
 
         form = Lomake(fake_input)
