@@ -58,7 +58,9 @@ def lue_syote():
     print(
         "\n"
         "Tervetuloa! Anna Komento!\n"
-        "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet, 3 = Tulosta BibTeX-muodossa, 4 = Rajoita hakua")
+        "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet,"
+        "3 = Tulosta BibTeX-muodossa, 4 = Rajoita hakua"
+        )
     inp = input("Komento: ")
     return inp
 
