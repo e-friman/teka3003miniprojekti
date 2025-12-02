@@ -11,3 +11,5 @@ htmlcov
 .coverage.*
 .xml
 .html
+.venv
+*.code-workspace

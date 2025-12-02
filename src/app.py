@@ -1,12 +1,13 @@
 import os
 from citation import Citation
-from database import MemoryDatabase
+from database import DatabaseHandler
 from lomake import Lomake
+from filter_builder import FilterBuilder
 
 citation1 = Citation("article", "key1", {"author": "author", "title": "title"})
 
 
-db = MemoryDatabase()
+db = DatabaseHandler()
 db.add(citation1)
 
 lomake = Lomake()
@@ -34,6 +35,11 @@ def main():
         elif syote =="3":
             for citation in db.get_all():
                 print(citation.to_bibtex())
+        elif syote =="4":
+            fb = FilterBuilder()
+            filt = fb.read_input()
+            for citation in db.hae_viitteet(filt):
+                print(citation.to_bibtex())
         else:
             print(
                 "Outo komento!\n")
@@ -44,6 +50,7 @@ def main():
     print("Ohjelma sulkeutuu!")
 
 
+
 def lue_syote():
     clear()
     #Pylint ei tykkää tuosta globalista, pitää muuttaa myöhemmin tms. -Vilppu
@@ -51,7 +58,7 @@ def lue_syote():
     print(
         "\n"
         "Tervetuloa! Anna Komento!\n"
-        "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet, 3 = Tulosta BibTeX-muodossa")
+        "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet, 3 = Tulosta BibTeX-muodossa, 4 = Rajoita hakua")
     inp = input("Komento: ")
     return inp
 

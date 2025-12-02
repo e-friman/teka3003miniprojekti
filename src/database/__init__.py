@@ -1,1 +1,2 @@
 from database.memory_database import MemoryDatabase
+from database.database_handler import DatabaseHandler
