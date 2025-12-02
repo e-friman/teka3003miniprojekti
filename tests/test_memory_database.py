@@ -33,3 +33,11 @@ class TestMemoryDatabase(TestCase):
         self.assertEqual(len(all_citations), 2)
         self.assertEqual(all_citations[0], self.citation1)
         self.assertEqual(all_citations[1], self.citation2)
+
+    def test_hae_viitteet_returns_correct_citations(self):
+        self.db.add(self.citation1)
+        self.db.add(self.citation2)
+        filt = {"author": "author1"}
+        filt_citations = self.db.hae_viitteet(filt)
+        self.assertIn(self.citation1, filt_citations)
+        self.assertEqual(len(filt_citations), 1)
