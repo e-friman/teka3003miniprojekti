@@ -4,14 +4,10 @@ from database import MemoryDatabase
 from lomake import Lomake
 
 citation1 = Citation("article", "key1", {"author": "author", "title": "title"})
-citation2 = Citation("book", "Martin09", {"author": "Martin, Robert", 
-                                          "title": "Clean Code: A Handbook of Agile Software Craftsmanship", 
-                                          "year": "2008", "publisher": "Prentice Hall"})
 
 
 db = MemoryDatabase()
 db.add(citation1)
-db.add(citation2)
 
 lomake = Lomake()
 
