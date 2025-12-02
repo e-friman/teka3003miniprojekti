@@ -24,7 +24,7 @@ class Citation:
         data = ""
         for index in self.data:
             data += ",\n"
-            data += index + "=" + f'"{self.data[index]}"'
+            data += "\t" + index + " = " + f'"{self.data[index]}"'
 
         bibtex = "@" + type_ + "{" + key + data + "\n}"
 

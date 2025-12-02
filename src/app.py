@@ -3,11 +3,11 @@ from citation import Citation
 from database import MemoryDatabase
 from lomake import Lomake
 
-citation = Citation("article", "key1", {"author": "author", "title": "title"})
+citation1 = Citation("article", "key1", {"author": "author", "title": "title"})
 
 
 db = MemoryDatabase()
-db.add(citation)
+db.add(citation1)
 
 lomake = Lomake()
 
@@ -31,6 +31,9 @@ def main():
         elif syote == "2":
             for c in db.get_all():
                 print(str(c))
+        elif syote =="3":
+            for citation in db.get_all():
+                print(citation.to_bibtex())
         else:
             print(
                 "Outo komento!\n")
@@ -48,7 +51,7 @@ def lue_syote():
     print(
         "\n"
         "Tervetuloa! Anna Komento!\n"
-        "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet")
+        "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet, 3 = Tulosta BibTeX-muodossa")
     inp = input("Komento: ")
     return inp
 
