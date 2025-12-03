@@ -9,7 +9,8 @@ __pyt
 htmlcov
 .coverage
 .coverage.*
-.xml
-.html
+*.xml
+*.html
 .venv
 *.code-workspace
+
