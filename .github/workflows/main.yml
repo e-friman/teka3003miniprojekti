@@ -28,3 +28,9 @@ jobs:
         run: |
           export PYTHONPATH=src
           poetry run robot --pythonpath "resources:src" tests/robot
+      - name: Coverage report
+        run: poetry run coverage xml
+      - name: Coverage report to Codecov
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
