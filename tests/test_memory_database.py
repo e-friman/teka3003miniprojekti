@@ -41,3 +41,10 @@ class TestMemoryDatabase(TestCase):
         filt_citations = self.db.hae_viitteet(filt)
         self.assertIn(self.citation1, filt_citations)
         self.assertEqual(len(filt_citations), 1)
+
+    def test_hae_viitteet_does_not_return_citations_with_missing_keys(self):
+        self.db.add(self.citation1)
+        self.db.add(self.citation2)
+        filt = {"key_that_does_not_exist": "something"}
+        filt_citations = self.db.hae_viitteet(filt)
+        self.assertEqual(len(filt_citations), 0)

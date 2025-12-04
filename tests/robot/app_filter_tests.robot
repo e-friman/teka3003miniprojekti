@@ -8,7 +8,6 @@ App Works
     Add Input    author
     Add Input    author1
     Add Input    ${EMPTY}
-    Add Input    ${EMPTY}
     Add Input    q
     Create App
     Is In Output    author1

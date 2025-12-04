@@ -37,11 +37,11 @@ class Lomake:
         return self._input(str(field) + " = ")
 
     #Kysyy lomakkeen sisällön käyttäjältä ja laittaa sen eteenpäin tallennettavaksi
-    def tayta_lomake(self, data):
+    def tayta_lomake(self):
         #newList = []
         entry = self.entry_syote()
         if not entry in self.entry_tyypit:
-            raise RuntimeError("Tyyppi ei kelpaa.")
+            raise ValueError("Tyyppi ei kelpaa.")
 
         key = self.key_syote()
         kentat = self.hae_kentat(self.entry_tyypit, entry)

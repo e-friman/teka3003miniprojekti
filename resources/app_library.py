@@ -37,4 +37,4 @@ class AppLibrary:
             return str(next(it))
 
         form = Lomake(fake_input)
-        return form.tayta_lomake(None)
+        return form.tayta_lomake()
