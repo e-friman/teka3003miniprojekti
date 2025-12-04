@@ -1,6 +1,9 @@
 *** Settings ***
 Library    app_library.AppLibrary
 
+*** Variables ***
+${bibtex_form}   @article{a1,\n\tauthor = "Bob"\n} 
+
 *** Test Cases ***
 Citation Initialization Works
     ${c}=    Create Citation    article    a1    {"author": "Bob"}
@@ -34,3 +37,9 @@ Lomake Produces Citation
     Should Be Equal    ${result.data["title"]}     My Title
     Should Be Equal    ${result.data["journal"]}   My Journal
     Should Be Equal    ${result.data["year"]}      2025
+
+Citation To Bibtex
+    ${citation}=   Create Citation    article    a1    {"author": "Bob"}
+    ${citation_bibtex}=    Call Method    ${citation}    to_bibtex
+
+    Should be equal    ${citation_bibtex}    ${bibtex_form}

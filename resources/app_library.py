@@ -10,6 +10,18 @@ class AppLibrary:
 
     def citation_to_string(self, citation):
         return str(citation)
+    
+    def to_bibtex(self) -> str:
+        type_ = self.type
+        key = self.key
+        data = ""
+        for index in self.data:
+            data += ",\n"
+            data += "\t" + index + " = " + f'"{self.data[index]}"'
+
+        bibtex = "@" + type_ + "{" + key + data + "\n}"
+
+        return bibtex
 
     # Database related methods
     def create_database(self):
