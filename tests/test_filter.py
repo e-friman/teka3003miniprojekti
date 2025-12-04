@@ -2,10 +2,10 @@ from unittest import TestCase
 from filter_builder import FilterBuilder
 
 class TestFilter(TestCase):
-    def fake_input(self, prompt):
+    def fake_input(self, _prompt):
         return ""
 
-    def fake_input2(self, prompt):
+    def fake_input2(self, _prompt):
         return next(self.inputs2)
 
     def setUp(self):
