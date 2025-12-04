@@ -11,7 +11,6 @@ class CitationAppLibrary:
         self.citation2 = Citation("book", "key2", {"author": "author2"})
 
     def add_input(self, input_):
-        print("test")
         self._input.append(input_)
 
     def is_in_output(self, output_):
@@ -39,9 +38,8 @@ class CitationAppLibrary:
         app = CitationApp(
             self._db,
             fake_input,
-            handle_output,
-            False
-            )
+            handle_output
+        )
         app.run()
 
     def init_default_database(self):

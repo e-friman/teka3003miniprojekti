@@ -18,3 +18,10 @@ class TestCitation(TestCase):
             str(self.citation),
             "Citation(type=article, key=articleKey, data={'author': 'author'})",
         )
+
+    def test_to_bibtex_returns_correctly_formatted_string(self):
+        bibtex_format = self.citation.to_bibtex()
+        self.assertEqual(
+            bibtex_format,
+            '@article{articleKey,\n\tauthor = "author"\n}'
+        )
