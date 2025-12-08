@@ -36,6 +36,8 @@ class TestCitation(TestCase):
     def test_eq_and_ne_return_correct_booleans(self):
         test_cit1 = Citation("book", "book_key", {"author": "author1"})
         test_cit2 = Citation("article", "articleKey", {"author": "author"})
+        test_cit3 = {"stuff"}
+        self.assertFalse(test_cit3 == test_cit1)
         self.assertFalse(test_cit1 == self.citation)
         self.assertTrue(test_cit1 != self.citation)
         self.assertTrue(test_cit2 == self.citation)
