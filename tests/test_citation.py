@@ -32,3 +32,11 @@ class TestCitation(TestCase):
         self.assertEqual(loaded_citation.type, self.citation.type)
         self.assertEqual(loaded_citation.key,  self.citation.key)
         self.assertEqual(loaded_citation.data, self.citation.data)
+
+    def test_eq_and_ne_return_correct_booleans(self):
+        test_cit1 = Citation("book", "book_key", {"author": "author1"})
+        test_cit2 = Citation("article", "articleKey", {"author": "author"})
+        self.assertFalse(test_cit1 == self.citation)
+        self.assertTrue(test_cit1 != self.citation)
+        self.assertTrue(test_cit2 == self.citation)
+        self.assertFalse(test_cit2 != self.citation)

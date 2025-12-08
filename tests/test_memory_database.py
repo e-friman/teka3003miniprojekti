@@ -22,6 +22,12 @@ class TestMemoryDatabase(TestCase):
         self.assertEqual(len(all_citations), 0)
 
     def test_add_citation_to_database(self):
+        not_citation = {}
+        #En ole ihan varma tästä, mutta näyttää toimivan... -Vilppu
+        #Testataan että raise TypeError toimii
+        with self.assertRaises(TypeError) as context:
+            self.db.add(not_citation)
+        self.assertTrue("Not a Citation object" in str(context.exception))
         self.db.add(self.citation1)
         self.db.add(self.citation2)
         all_citations = self.db.get_all()
@@ -58,8 +64,13 @@ class TestMemoryDatabase(TestCase):
             filename = os.path.join(tempdir, "test_db.json")
             self.db.save_to_file(filename)
             new_db = MemoryDatabase()
+            new_citation = Citation(
+                "type", "some_key", {"author": "author"}
+                )
+            new_db.add(new_citation)
             new_db.load_from_file(filename)
             all_citations = new_db.get_all()
             self.assertIn(self.citation1, all_citations)
             self.assertIn(self.citation2, all_citations)
-            self.assertEqual(len(all_citations), 2)
+            self.assertIn(new_citation, all_citations)
+            self.assertEqual(len(all_citations), 3)
