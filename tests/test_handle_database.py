@@ -20,3 +20,13 @@ class TestDatabaseHandler(unittest.TestCase):
     def test_get_all(self):
         self.db_handler.get_all()
         self.db_mock.get_all.assert_called_once()
+
+    def test_save_to_file(self):
+        filename = "testfile.json"
+        self.db_handler.save_to_file(filename)
+        self.db_mock.save_to_file.assert_called_once_with(filename)
+
+    def test_load_from_file(self):
+        filename = "testfile.json"
+        self.db_handler.load_from_file(filename)
+        self.db_mock.load_from_file.assert_called_once_with(filename)

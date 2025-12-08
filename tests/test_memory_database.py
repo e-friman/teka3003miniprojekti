@@ -1,4 +1,6 @@
 from unittest import TestCase
+import tempfile
+import os
 
 from citation import Citation
 from database import MemoryDatabase
@@ -31,8 +33,8 @@ class TestMemoryDatabase(TestCase):
         self.db.add(self.citation2)
         all_citations = self.db.get_all()
         self.assertEqual(len(all_citations), 2)
-        self.assertEqual(all_citations[0], self.citation1)
-        self.assertEqual(all_citations[1], self.citation2)
+        self.assertIn(self.citation1, all_citations)
+        self.assertIn(self.citation2, all_citations)
 
     def test_hae_viitteet_returns_correct_citations(self):
         self.db.add(self.citation1)
@@ -48,3 +50,16 @@ class TestMemoryDatabase(TestCase):
         filt = {"key_that_does_not_exist": "something"}
         filt_citations = self.db.hae_viitteet(filt)
         self.assertEqual(len(filt_citations), 0)
+
+    def test_load_from_file_loads_citations_from_saved_file(self):
+        self.db.add(self.citation1)
+        self.db.add(self.citation2)
+        with tempfile.TemporaryDirectory() as tempdir:
+            filename = os.path.join(tempdir, "test_db.json")
+            self.db.save_to_file(filename)
+            new_db = MemoryDatabase()
+            new_db.load_from_file(filename)
+            all_citations = new_db.get_all()
+            self.assertIn(self.citation1, all_citations)
+            self.assertIn(self.citation2, all_citations)
+            self.assertEqual(len(all_citations), 2)

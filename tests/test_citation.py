@@ -25,3 +25,10 @@ class TestCitation(TestCase):
             bibtex_format,
             '@article{articleKey,\n\tauthor = "author"\n}'
         )
+
+    def test_from_json_loads_citation_returned_by_to_json(self):
+        json_str = self.citation.to_json()
+        loaded_citation = Citation.from_json(json_str)
+        self.assertEqual(loaded_citation.type, self.citation.type)
+        self.assertEqual(loaded_citation.key,  self.citation.key)
+        self.assertEqual(loaded_citation.data, self.citation.data)

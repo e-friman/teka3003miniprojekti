@@ -13,4 +13,5 @@ htmlcov
 *.html
 .venv
 *.code-workspace
+db/
 
