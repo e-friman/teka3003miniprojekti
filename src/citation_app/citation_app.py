@@ -1,3 +1,4 @@
+from json import JSONDecodeError
 #from citation import Citation
 from database import DatabaseHandler
 from lomake import Lomake
@@ -13,6 +14,7 @@ class CitationApp:
         self._print = print_
         self._db = db
 
+    #pylint: disable=R0912
     def run(self):
 
         #Ohjelma käynnistyy
@@ -61,10 +63,12 @@ class CitationApp:
                     f.write(bibtex)
             elif syote =="6":
                 path = self._input("Anna tiedostopolku: ")
-                
+
                 try:
                     self._db.load_from_file(path)
-                except Exception as e:
+                except JSONDecodeError as e:
+                    print(e)
+                except FileNotFoundError as e:
                     print(e)
                 #lataa viitteet käyttäjän antamasta polusta
             else:
