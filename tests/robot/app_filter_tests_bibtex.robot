@@ -8,7 +8,7 @@ ${author2_form}    @book{key2,\n\tauthor = "author2"\n}
 *** Test Cases ***
 App Works
     Init Default Database
-    Add Input    3
+    Add Input    4
     Add Input    q
     Create App
     Is In Output    ${author1_form}
