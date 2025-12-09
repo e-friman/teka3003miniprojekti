@@ -4,7 +4,7 @@ Library    citation_app_library.CitationAppLibrary
 *** Test Cases ***
 App Works
     Init Default Database
-    Add Input    4
+    Add Input    3
     Add Input    author
     Add Input    author1
     Add Input    ${EMPTY}
