@@ -59,7 +59,7 @@ class Citation:
             type_=cit_dict["type"],
             key=cit_dict["key"],
             data=json.loads(cit_dict["data"]),
-            timestamp=cit_dict["timestamp"]
+            #timestamp=cit_dict["timestamp"]  <- pitää korjata toimivaksi
         )
 
     def __deepcopy__(self, _memo):

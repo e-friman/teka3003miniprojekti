@@ -47,3 +47,4 @@ class MemoryDatabase:
                 if citation.key not in self._data: # kato timestamp kanssa myöhemmin..
                     #lisää testi myöhemmin
                     self._data[citation.key] = citation
+                
