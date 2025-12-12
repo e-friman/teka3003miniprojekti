@@ -8,7 +8,8 @@ class TestLomake(TestCase):
                              "author_name",
                              "title_name",
                              "journal_name",
-                             "2025"]
+                             "2025",
+                             "tag"]
         fake_input = iter(self.input_values)
         self.lomake = Lomake(lambda *args, **kwargs: next(fake_input))
 
