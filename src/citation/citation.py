@@ -33,10 +33,14 @@ class Citation:
     def to_bibtex(self) -> str:
         type_ = self.type
         key = self.key
+        
+        data_copy = self.data.copy()
+        data_copy.pop("tag", None)
+
         data = ""
-        for index in self.data:
+        for index in data_copy:
             data += ",\n"
-            data += "\t" + index + " = " + f'"{self.data[index]}"'
+            data += "\t" + index + " = " + f'"{data_copy[index]}"'
 
         bibtex = "@" + type_ + "{" + key + data + "\n}"
 
