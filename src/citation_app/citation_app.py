@@ -73,6 +73,7 @@ class CitationApp:
                 except FileNotFoundError as e:
                     print(e)
                 #lataa viitteet käyttäjän antamasta polusta
+                self._print("Synkronoitu viitteet tiedostosta.")
             elif syote =="7":
                 filename = self._input("Anna tiedoston nimi: ")
                 if not filename.endswith(".json"):
