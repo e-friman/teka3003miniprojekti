@@ -75,9 +75,9 @@ class CitationApp:
                 #lataa viitteet käyttäjän antamasta polusta
             elif syote =="7":
                 filename = self._input("Anna tiedoston nimi: ")
-                self._db.save_to_file(filename)
                 if not filename.endswith(".json"):
                     filename += ".json"
+                self._db.save_to_file(filename)
             else:
                 self._print(ohjeet)
             syote = self.lue_syote()

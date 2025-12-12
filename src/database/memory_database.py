@@ -44,8 +44,7 @@ class MemoryDatabase:
             db_as_dict = json.load(f)
             for citation_json in db_as_dict["citations"]:
                 citation = Citation.from_json(citation_json)
-                if citation.key not in self._data: 
+                if citation.key not in self._data:
                     self._data[citation.key] = citation
                 elif citation.timestamp > self._data[citation.key].timestamp:
-                        self._data[citation.key] = citation
-                
+                    self._data[citation.key] = citation
