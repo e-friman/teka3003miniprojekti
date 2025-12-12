@@ -19,10 +19,10 @@ class Lomake:
     #Oikeasti otetaan databasesta ym.
     entry_tyypit={
         "article": [
-            "author","title","journal","year"
+            "author","title","journal","year", "tag"
             ],
         "book": [
-            "author","title","publisher","year"
+            "author","title","publisher","year", "tag"
             ]
         #jne.
     }
