@@ -6,13 +6,12 @@ class Citation:
             type_: str,
             key: str,
             data: dict,
-            timestamp = int(time.time())
+            timestamp = time.time()
             ):
         self._type = type_
         self._key = key
         self._data = data
-        self._timestamp = timestamp
-    #Ehkä timestamp myöhemmin...
+        self._timestamp = int(timestamp or 0)
     def __str__(self) -> str:
         return f"Citation(type={self._type}, key={self._key}, data={self._data})"
 
@@ -59,7 +58,7 @@ class Citation:
             type_=cit_dict["type"],
             key=cit_dict["key"],
             data=json.loads(cit_dict["data"]),
-            #timestamp=cit_dict["timestamp"]  <- pitää korjata toimivaksi
+            timestamp=cit_dict.get("timestamp") 
         )
 
     def __deepcopy__(self, _memo):
