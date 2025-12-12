@@ -5,20 +5,30 @@ from lomake import Lomake
 from filter_builder import FilterBuilder
 
 class CitationApp:
+    #pylint: disable=R0913,R0917
     def __init__(
             self, db = DatabaseHandler(),
             input_ = input,
-            print_ = print
+            print_ = print,
+            lomake = None,
+            filter_builder = None
             ):
         self._input = input_
         self._print = print_
         self._db = db
+        if lomake is None:
+            self._lomake = Lomake(self._input)
+        else:
+            self._lomake = lomake
+        if filter_builder is None:
+            self._filter_builder = FilterBuilder(self._input)
+        else:
+            self._filter_builder = filter_builder
 
     #pylint: disable=R0912
     def run(self):
 
         #Ohjelma käynnistyy
-        lomake = Lomake(self._input)
         ohjeet = (
                 "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet, "
                 "3 = Rajoita hakua, 4 = Tulosta BibTeX-muodossa, "
@@ -34,16 +44,15 @@ class CitationApp:
             if syote == "1":
                 #testidata, tähän joku getData() tms.
                 try:
-                    cit = lomake.tayta_lomake()
+                    cit = self._lomake.tayta_lomake()
                     self._db.add(cit)
-                except ValueError as e:
+                except TypeError as e:
                     self._print(str(e))
             elif syote == "2":
                 for c in self._db.get_all():
                     self._print(str(c))
             elif syote =="3":
-                fb = FilterBuilder(self._input)
-                filt = fb.read_input()
+                filt = self._filter_builder.read_input()
                 for citation in self._db.hae_viitteet(filt):
                     self._print(citation.to_bibtex())
             elif syote =="4":
@@ -67,7 +76,6 @@ class CitationApp:
 
                 try:
                     self._db.load_from_file(path)
-                    self._db.save_to_file("db/citations_db.json")
                 except JSONDecodeError as e:
                     print(e)
                 except FileNotFoundError as e:
