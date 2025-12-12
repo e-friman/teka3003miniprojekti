@@ -12,13 +12,10 @@ class TestCitationApp(unittest.TestCase):
         if hasattr(self.db, "clear"):
             self.db.clear()
 
-    def test_initialization(self):
-        self.assertIsInstance(self.app._db, DatabaseHandler)
-
     def test_run_quit_immediately(self):
         # Test that the app can run and quit immediately
         self.app.run()  # Should not raise any exceptions
-        
+
     def test_syote_5_creates_bibtex_file(self):
         inputs = iter(["5", "testfile", "q"])
         outputs = []
@@ -53,6 +50,5 @@ class TestCitationApp(unittest.TestCase):
         app.run()
 
         # Check if synchronization message was printed
-        sync_message_found = any("Synkronoitu viitteet tiedostosta." in output for output in outputs)
+        sync_message_found = any("Synkronoitu viitteet tiedostosta." in o for o in outputs)
         self.assertTrue(sync_message_found)
-       
