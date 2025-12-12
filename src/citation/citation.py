@@ -22,7 +22,7 @@ class Citation:
     def to_bibtex(self) -> str:
         type_ = self.type
         key = self.key
-        
+
         data_copy = self.data.copy()
         data_copy.pop("tag", None)
 
