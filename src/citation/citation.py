@@ -6,12 +6,12 @@ class Citation:
             type_: str,
             key: str,
             data: dict,
-            timestamp = time.time()
+            timestamp = None
             ):
         self._type = type_
         self._key = key
         self._data = data
-        self._timestamp = int(timestamp or 0)
+        self._timestamp = int(timestamp if timestamp is not None else time.time())
     def __str__(self) -> str:
         return f"Citation(type={self._type}, key={self._key}, data={self._data})"
 

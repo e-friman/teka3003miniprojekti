@@ -1,0 +1,6 @@
+{
+    "citations": [
+        "{\"type\": \"book\", \"key\": \"key1\", \"data\": \"{\\\"author\\\": \\\"test_db_author1\\\", \\\"title\\\": \\\"title1\\\", \\\"publisher\\\": \\\"publisher1\\\", \\\"year\\\": \\\"2025\\\"}\", \"timestamp\": 1765540093}",
+        "{\"type\": \"book\", \"key\": \"key2\", \"data\": \"{\\\"author\\\": \\\"test_db_author2\\\", \\\"title\\\": \\\"title2\\\", \\\"publisher\\\": \\\"publisher2\\\", \\\"year\\\": \\\"2025\\\"}\", \"timestamp\": 1765540093}"
+    ]
+}
