@@ -13,7 +13,12 @@ class MemoryDatabase:
         self._data[copied.key] = copied
 
     def get_all(self) -> list[Citation]:
-        return [copy.deepcopy(citation) for citation in self._data.values()]
+        results = []
+        for citation in self._data.values():
+            copy_cite = copy.deepcopy(citation)
+            copy_cite.data.pop("tag", None)
+            results.append(copy_cite)
+        return results
     #Haku
     def hae_viitteet(self, filt: dict) -> list[Citation]:
         tulokset = []
