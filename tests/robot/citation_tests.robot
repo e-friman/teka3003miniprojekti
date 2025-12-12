@@ -29,7 +29,7 @@ Database Adding Items Works
     Length Should Be    ${items}    1
 
 Lomake Produces Citation
-    ${values}=    Create List    article    key1    Bob    My Title    My Journal    2025
+    ${values}=    Create List    article    key1    Bob    My Title    My Journal    2025    My Tag
     ${result}=    Create Lomake Citation    ${values}
     Should Be Equal    ${result.type}    article
     Should Be Equal    ${result.key}     key1
@@ -37,6 +37,7 @@ Lomake Produces Citation
     Should Be Equal    ${result.data["title"]}     My Title
     Should Be Equal    ${result.data["journal"]}   My Journal
     Should Be Equal    ${result.data["year"]}      2025
+    Should Be Equal    ${result.data["tag"]}       My Tag
 
 Citation To Bibtex
     ${citation}=   Create Citation    article    a1    {"author": "Bob"}
