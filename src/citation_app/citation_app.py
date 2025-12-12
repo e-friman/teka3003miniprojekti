@@ -71,6 +71,7 @@ class CitationApp:
                 except FileNotFoundError as e:
                     print(e)
                 #lataa viitteet käyttäjän antamasta polusta
+                self._print("Synkronoitu viitteet tiedostosta.")
             else:
                 self._print(ohjeet)
             syote = self.lue_syote()
