@@ -7,8 +7,8 @@ class CitationAppLibrary:
         self._db = DatabaseHandler()
         self._input = []
         self._output = []
-        self.citation1 = Citation("article", "key1", {"author": "author1"})
-        self.citation2 = Citation("book", "key2", {"author": "author2"})
+        self.citation1 = Citation("article", "key1", {"author": "author1"}, 0)
+        self.citation2 = Citation("book", "key2", {"author": "author2"}, 2147483647)
 
     def add_input(self, input_):
         self._input.append(input_)
@@ -41,6 +41,13 @@ class CitationAppLibrary:
             handle_output
         )
         app.run()
+
+    def add_citation_to_db(self, type_, key,
+                           data : dict, timestamp = None):
+        if timestamp is not None:
+            self._db.add(Citation(type_, key, data, timestamp))
+        else:
+            self._db.add(Citation(type_, key, data))
 
     def init_default_database(self):
         self._db.add(self.citation1)
