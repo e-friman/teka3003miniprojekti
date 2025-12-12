@@ -22,7 +22,8 @@ class CitationApp:
         ohjeet = (
                 "q = Poistu, 1 = Syötä viite, 2 = Hae viitteet, "
                 "3 = Rajoita hakua, 4 = Tulosta BibTeX-muodossa, "
-                "5 = Luo BibTeX-tiedosto, 6 = Synkronoi viitteet"
+                "5 = Luo BibTeX-tiedosto, 6 = Synkronoi viitteet "
+                "7 = Tallenna viitteet JSON tiedostona"
                 )
         self._print("Tervetuloa! Anna Komento!\n")
         self._print(ohjeet)
@@ -66,11 +67,17 @@ class CitationApp:
 
                 try:
                     self._db.load_from_file(path)
+                    self._db.save_to_file("db/citations_db.json")
                 except JSONDecodeError as e:
                     print(e)
                 except FileNotFoundError as e:
                     print(e)
                 #lataa viitteet käyttäjän antamasta polusta
+            elif syote =="7":
+                filename = self._input("Anna tiedoston nimi: ")
+                if not filename.endswith(".json"):
+                    filename += ".json"
+                self._db.save_to_file(filename)
             else:
                 self._print(ohjeet)
             syote = self.lue_syote()
