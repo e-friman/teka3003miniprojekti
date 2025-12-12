@@ -13,7 +13,12 @@ class MemoryDatabase:
         self._data[copied.key] = copied
 
     def get_all(self) -> list[Citation]:
-        return [copy.deepcopy(citation) for citation in self._data.values()]
+        results = []
+        for citation in self._data.values():
+            copy_cite = copy.deepcopy(citation)
+            copy_cite.data.pop("tag", None)
+            results.append(copy_cite)
+        return results
     #Haku
     def hae_viitteet(self, filt: dict) -> list[Citation]:
         tulokset = []
@@ -44,5 +49,7 @@ class MemoryDatabase:
             db_as_dict = json.load(f)
             for citation_json in db_as_dict["citations"]:
                 citation = Citation.from_json(citation_json)
-                if citation.key not in self._data: # kato timestamp kanssa myöhemmin..
+                if citation.key not in self._data:
+                    self._data[citation.key] = citation
+                elif citation.timestamp > self._data[citation.key].timestamp:
                     self._data[citation.key] = citation
