@@ -15,5 +15,4 @@ htmlcov
 *.code-workspace
 db/
 *.bib
-*.json
 
