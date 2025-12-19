@@ -16,3 +16,6 @@ Koodin ylläpidettävyyden tulee olla mahdollisimman hyvä
 
 [![CI](https://github.com/e-friman/teka3003miniprojekti/actions/workflows/main.yml/badge.svg)](https://github.com/e-friman/teka3003miniprojekti/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/e-friman/teka3003miniprojekti/graph/badge.svg?token=9I64QXGHAV)](https://codecov.io/gh/e-friman/teka3003miniprojekti)
+
+## Raportti
+https://docs.google.com/document/d/12EdLRNsfDb3G1z97a86MktWs62q5QRhPB88xL29p9v8/edit?usp=sharing
